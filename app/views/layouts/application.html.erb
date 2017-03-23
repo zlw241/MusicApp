@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MusicApp</title>
+    <link href="/assets/favicon.png" rel="shortcut icon" type="image/x-icon" />
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div style="margin-bottom:50px;">
+    <h1>MusicApp</h1>
+    <ul style="list-style-type: none; float:right;">
+      <li style="display:inline; padding-left: 10px;"><a href="<%= users_url %>">Home</a></li>
+      <% if current_user %>
+      <li style="display:inline; padding-left: 10px;"><a href="<%= user_url(current_user) %>">Profile</a></li>
+      <% end %>
+      <li style="display:inline; padding-left: 10px;"><a href="<%= artists_url %>">Artists</a></li>
+      <li style="display:inline; padding-left: 10px;"><a href="<%= albums_url %>">Albums</a></li>
+      <li style="display:inline; padding-left: 10px;"><a href="<%= tracks_url %>">Songs</a></li>
+      <li style="display:inline; padding-left: 10px;"><a href="<%= new_user_url %>">Sign Up</a></li>
+      <li style="display:inline; padding-left: 10px;"><a href="<%= new_session_url %>">Log In</a></li>
+      <% if current_user %>
+      <li style="display:inline; padding-left: 10px;">
+        <form style="display:inline;" action="<%= session_url %>" method="POST">
+          <input type="hidden" name="authenticity_token"
+            value="<%= form_authenticity_token %>" />
+          <input type="hidden" name="_method" value="DELETE" />
+          <input type="submit" value="Log Out" />
+        </form>
+      </li>
+      <% end %>
+    </ul>
+    </div>
+    <div style="padding-top:20px;">
+
+      <%= yield %>
+
+    </div>
+
+  </body>
+</html>
