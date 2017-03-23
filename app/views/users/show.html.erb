@@ -1,7 +1,16 @@
 
 
-<h2><%= @user.username %></h2>
-<small>member since <%= @user.created_at.month %>/<%= @user.created_at.day %>/<%= @user.created_at.year %>
-<div>
-  email - <%= @user.email %>
+
+<div style="width: 90%; margin: auto;">
+  <h2 style="margin-bottom:-5px; display:inline;"><%= @user.username %></h2>
+  <span style="display:inline;">
+    <small>
+      member since <%= @user.created_at.month %>/<%= @user.created_at.day %>/<%= @user.created_at.year %>
+    </small>
+  </span>
+  <hr>
+
+  <div>
+    email - <%= @user.email %>
+  </div>
 </div>

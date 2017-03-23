@@ -2,6 +2,7 @@
 
 class UsersController < ApplicationController
   before_action :ensure_logged_in, only: [:users, :index, :destroy]
+  before_action :ensure_logged_out, only: [:new, :create]
 
 
   def index

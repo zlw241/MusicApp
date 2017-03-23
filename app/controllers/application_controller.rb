@@ -26,4 +26,8 @@ class ApplicationController < ActionController::Base
     redirect_to new_session_url unless logged_in?
   end
 
+  def ensure_logged_out
+    redirect_to artists_url if logged_in?
+  end
+
 end
