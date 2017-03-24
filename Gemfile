@@ -30,7 +30,7 @@ gem 'bcrypt'
 gem 'annotate'
 gem 'seed_dump'
 gem 'letter_opener'
-
+gem 'paperclip'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

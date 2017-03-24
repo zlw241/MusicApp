@@ -1,0 +1,15 @@
+
+
+<h2 style="display:inline;"><%= @artist.name %></h2>
+<a href="<%= new_artist_album_url(@artist) %>">Add Album</a>
+
+<p><%= @artist.genre %></p>
+
+<% @artist.albums.each do |album| %>
+  <a href="<%= album_url(album) %>"><%= album.title %></a>
+  <ul>
+    <% album.tracks.each do |track| %>
+      <li><%= track.name %></li>
+    <% end %>
+  </ul>
+<% end %>

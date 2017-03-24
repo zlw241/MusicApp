@@ -1,0 +1,20 @@
+
+
+
+<form action="<%= artist_albums_url %>" method="POST">
+  <input type="hidden" name="authenticity_token"
+    value="<%= form_authenticity_token %>" />
+
+  <label for="artist_album_title">Title</label><br>
+  <input id="artist_album_title" type="text" name="album[title]">
+
+  <br><br>
+
+  <label for="artist_album_year">Year</label><br>
+  <input id="artist_album_year" type="text" name="album[year]">
+
+  <br><br>
+
+  <input type="submit" value="Add Album">
+
+</form>

@@ -32,13 +32,13 @@ Rails.application.routes.draw do
   #     resource :seller
   #   end
 
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
+  #Example resource route with more complex sub-resources:
+    # resources :products do
+    #   resources :comments
+    #   resources :sales do
+    #     get 'recent', on: :collection
+    #   end
+    # end
 
   # Example resource route with concerns:
   #   concern :toggleable do
@@ -54,17 +54,21 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  resources :artists
+  resources :artists do
+    resources :albums, only: [:new, :create]
+  end
+  
+  resources :albums, only: [:show, :index, :edit, :update, :destroy] do
+    resources :tracks, only: [:new, :create]
+  end
+  # resources :albums do
+  #   resources :tracks, only: [:new, :create]
+  # end
 
-  resources :albums
-
-  resources :tracks
+  resources :tracks, only: [:show, :index, :edit, :update, :destroy]
 
   resources :users
-
   resource :session, only: [:new, :create, :destroy]
-
-
   root to: redirect("/artists")
 
 end

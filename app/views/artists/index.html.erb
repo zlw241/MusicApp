@@ -1,0 +1,9 @@
+
+
+<a href="<%= new_artist_url %>">Add new artist</a>
+<br>
+<% @artists.each do |artist| %>
+  <p><a href="<%= artist_url(artist) %>"><%= artist.name %></a></p>
+  <p><%= artist.genre %></p>
+  <hr>
+<% end %>

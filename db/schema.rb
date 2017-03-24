@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170323214754) do
+ActiveRecord::Schema.define(version: 20170324015310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,12 +21,14 @@ ActiveRecord::Schema.define(version: 20170323214754) do
     t.integer  "artist_id",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "year"
   end
 
   create_table "artists", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "genre"
   end
 
   create_table "comment_likes", force: :cascade do |t|
@@ -46,14 +48,18 @@ ActiveRecord::Schema.define(version: 20170323214754) do
   end
 
   create_table "tracks", force: :cascade do |t|
-    t.string   "name",                        null: false
+    t.string   "name",                               null: false
     t.text     "lyrics"
     t.integer  "album_id"
     t.integer  "length"
-    t.boolean  "bonus_track", default: false
+    t.boolean  "bonus_track",        default: false
     t.binary   "audio"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "audio_file_name"
+    t.string   "audio_content_type"
+    t.integer  "audio_file_size"
+    t.datetime "audio_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

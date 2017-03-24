@@ -1,0 +1,40 @@
+
+
+<h2>New Track</h2>
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |err| %>
+    <span style="color: red;"><%= err %></span>
+  <% end %>
+<% end %>
+
+<form enctype="multipart/form-data" action="<%= album_tracks_url %>" method="POST">
+  <input type="hidden" name="authenticity_token"
+    value="<%= form_authenticity_token %>" />
+
+  <label for="track_name">Name</label>
+  <input id="track_name" type="text" name="track[name]">
+
+  <br><br>
+
+  <label for="track_length">Length</label>
+  <input id="track_length" type="text" name="track[length]">
+
+  <br><br>
+
+  <label>Lyrics
+    <textarea id="track_lyrics" name="track[lyrics]"></textarea>
+  </label>
+  <!-- <input id="track_lyrics" type="text" name="track[lyrics]"> -->
+
+  <br><br>
+
+  <label for="track_audio">Audio File</label>
+  <input id="track_audio" type="file" name="track[audio]">
+
+  <br><br>
+
+  <input type="submit" value="Add Track">
+
+
+</form>

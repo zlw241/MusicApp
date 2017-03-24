@@ -6,14 +6,15 @@
 #  name       :string           not null
 #  created_at :datetime
 #  updated_at :datetime
+#  genre      :string
 #
-
-
 
 class Artist < ActiveRecord::Base
 
+  GENRES = ["electronic", "pop", "hip-hop", "rock", "jazz", "classical", "country"]
+
   validates :name, presence: true
-  
+
 
   has_many :albums,
     class_name: "Album",

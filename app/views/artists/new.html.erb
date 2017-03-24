@@ -1,0 +1,26 @@
+
+<h2>New Artist</h2>
+
+<form action="<%= artists_url %>" method="post">
+  <input type="hidden" name="authenticity_token"
+    value="<%= form_authenticity_token %>" />
+
+  <label for="artist_name">Group/Artist Name</label><br>
+  <input id="artist_name" type="text" name="artist[name]">
+
+  <br><br>
+
+  <label for="artist_genre">Genre</label><br>
+  <select id="artist_genre" type="select" name="artist[genre]">
+    <option>- Pick a Genre -</option>
+    <% Artist::GENRES.each do |genre| %>
+      <option value="<%= genre %>"><%= genre %></option>
+    <% end %>
+  </select>
+
+  <br><br>
+
+  <input type="submit" value="Add Artist" />
+
+
+</form>

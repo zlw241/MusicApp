@@ -16,7 +16,7 @@
 class Comment < ActiveRecord::Base
 
   validates :user_id, :body, presence: true
-  
+
 
   belongs_to :parent,
     class_name: "Comment",
@@ -33,12 +33,12 @@ class Comment < ActiveRecord::Base
     foreign_key: :user_id,
     primary_key: :id
 
-  has_many :comment_likes
+  has_many :comment_likes,
     class_name: "CommentLike",
     foreign_key: :comment_id,
     primary_key: :id
 
-  has_many :likes
+  has_many :likes,
     through: :comment_likes,
     source: :user
 
