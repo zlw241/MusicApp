@@ -5,6 +5,6 @@
 
 <ul>
 <% @album.tracks.each do |track| %>
-  <li><%= track.name %></li>
+  <li><a href="<%= track_url(track) %>"><%= track.name %></a></li>
 <% end %>
 </ul>

@@ -7,9 +7,18 @@ class TracksController < ApplicationController
   end
 
   def show
+    @track = Track.find_by(id: params[:id])
+    if @track
+      render :show
+    end
   end
 
   def destroy
+    track = Track.find_by(id: params[:id])
+    album = track.album
+    Track.delete(params[:id])
+    redirect_to album_url(album)
+
   end
 
   def new
